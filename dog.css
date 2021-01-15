@@ -1,0 +1,245 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0; 
+    background-color: #333;
+}
+
+.container {
+    margin: 0;
+    height: 1600px;
+    width: 1270px;
+    position: absolute;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    background-color: #fafafa;
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);  
+}
+
+.circle-container {
+    top:-100px;
+    left: -100px;
+    position: fixed; 
+}
+
+.circle {
+    background-color: #ff7979; 
+    height: 200px; 
+    width: 200px; 
+    border-radius: 50%; 
+    transition: transform 0.5s linear;
+}
+
+.circle button {
+    position: absolute; 
+    top: 50%; 
+    left: 60%; 
+    height: 100px; 
+    background: transparent; 
+    font-size: 26px;  
+    color: #fff; 
+    border: 0;
+    cursor: pointer;
+}
+
+.container.show-nav .circle {
+    transform:rotate(-60deg)
+}
+
+.circle button :focus {
+    outline: none;
+}
+ 
+.circle button#close {
+    left: 35px; 
+    bottom: -6px;
+}
+
+.container-content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.container-content .search.active h1 {
+    position: relative;
+    left: -590px;
+    margin: 0;
+}
+.container-content .search.active small {
+    position: relative;
+    left: -590px;
+    color:  #555;
+    font-style:italic;
+}
+.container-content p {
+    color:#333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left:0;
+    z-index: -1;
+    height: 200px;
+    width: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+} 
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-80%);
+    transition: transform 0.4s ease-in;
+}
+
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%)
+}
+nav ul li + li  + li{
+    margin-left: 30px;
+    transform: translateX(-200%)
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+
+}
+.container .container-content .search.active {
+    position: relative;
+    left: 590px;
+    top: -40px;
+    height: 50px;
+    width: 500px;
+    margin: 0;
+}
+
+.container .container-content .btn {
+    background-color: #fff;
+    position: absolute;
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0;
+    top:7px;
+    left: 0px;
+    height: 40px;
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+.container .container-content .search.active .searcher.active {
+    position: relative;
+    top: -30px;
+}
+
+.container .container-content .rotating-container {
+    display: flex;
+    flex-direction: row;
+    width: 85vw;
+    position: relative;
+    left: -40px;
+}
+.container .container-content .rotating-container .panel {
+    background-size: auto 100%; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 80vh; 
+    border-radius: 50px; 
+    color: #fff; 
+    cursor:pointer; 
+    flex: 0.5; 
+    margin:10px; 
+    position:relative;
+    transition: flex 0.7s ease-in; 
+}
+
+.container .container-content .rotating-container .panel h3 {
+    font-size: 24px; 
+    position: absolute; 
+    bottom: 20px; 
+    left: 20px; 
+    margin: 0; 
+    opacity: 0; 
+}
+
+.container .container-content .rotating-container .panel.active {
+    flex: 5;
+}
+
+.container .container-content .rotating-container .panel.active h3 { 
+   opacity: 1;
+   transition: opacity 0.3s ease-in 0.4s;
+}
+
+.container-content .search.active .searcher {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    top: -25px;
+}
+
+.container-content .search.active .searcher .input {
+    border: 0;
+    background-color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    transition: width 0.3s ease;
+    top: -25px;
+}
+
+.container-content .search.active .searcher .btn {
+    position: absolute;
+    left: 350px;
+    top: 45px;
+}
+
+.container-content .search.active .searcher.active .btn {
+    background-color: #fff;
+    position: absolute;
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0;
+    top:0;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.container-content .search.active .searcher.active .btn :focus ,
+.container-content .search.active .searcher.active .input :focus {
+    outline: none;
+}
+
+.container-content .search.active .searcher.active .input {
+    width:400px
+}
+
+.container-content .search.active .searcher.active .btn {
+    transform: translateX(350px);
+}
